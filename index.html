@@ -39,7 +39,13 @@
             margin-bottom: 10px;
             text-shadow: 0 0 8px rgba(255, 255, 255, 0.6);
         }
-
+        #time-tit {
+            font-size: 80px;
+            color: #b5d3db;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-shadow: 0 0 8px rgba(255, 255, 255, 0.6);
+        }
         #time {
             font-size: 80px;
             color: #b5d3db;
@@ -54,12 +60,14 @@
     <div class="clock">
         <div id="title">Digital Clock</div>
         <div id="date"></div>
+        <div id="time-tit"></div>
         <div id="time"></div>
     </div>
 
     <script>
         function updateTime() {
             const timeElement = document.getElementById('time');
+            const timetitElement = document.getElementById('time-tit');
             const dateElement = document.getElementById('date');
             const now = new Date();
             const hours = String(now.getHours()).padStart(2, '0');
@@ -68,6 +76,7 @@
             const day = String(now.getDate()).padStart(2, '0');
             const month = String(now.getMonth() + 1).padStart(2, '0');
             const year = now.getFullYear();
+            timetitElement.textContent = `Hr:Min:Sec `
             timeElement.textContent = `${hours}:${minutes}:${seconds}`;
             dateElement.textContent = `${day}-${month}-${year}`;
         }
